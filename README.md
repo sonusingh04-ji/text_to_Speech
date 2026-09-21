@@ -28,6 +28,7 @@ The application also provides advanced features such as:
 - Usage and speech analytics
 
 ---
+![Profile](./Profile.png)
 
 # ✨ Features
 
@@ -48,6 +49,8 @@ The application also provides advanced features such as:
 ---
 
 ![Authentication](./Authentication.png)
+
+![Admin Dashboard](./Admin.png)
 ## 🗣️ Text-to-Speech
 
 Users can:
@@ -131,3 +134,5 @@ The application uses a dedicated audio bucket:
 
 ```text
 tts-audio
+![Favorites](./Favorite.png)
+![Speech History](./Speech%20history.png)
