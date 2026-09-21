@@ -47,8 +47,7 @@ The application also provides advanced features such as:
 
 ---
 
-https://github.com/sonusingh04-ji/text_to_Speech/blob/2d593ae5d8f1fec1c5e5b64b469465858ed06f37/Authentication.png
-
+![Authentication](./Authentication.png)
 ## 🗣️ Text-to-Speech
 
 Users can:
