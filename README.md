@@ -64,7 +64,7 @@ Users can:
 The application uses ElevenLabs for speech generation.
 
 ---
-
+![Voice Input](./Voice%20Input%20in%20text.png)
 ## 🌍 Multiple Languages
 
 The application supports a multilingual speech workflow.
@@ -122,7 +122,7 @@ The extracted text can then be placed directly into the speech editor.
 Maximum upload size is controlled by the backend upload configuration.
 
 ---
-
+![Upload Document](./Upload%20document.png)
 ## ☁️ Cloud Audio Storage
 
 Generated audio can be stored using Supabase Storage.
