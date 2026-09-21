@@ -1,0 +1,1130 @@
+@import "tailwindcss";
+
+/*
+|--------------------------------------------------------------------------
+| Premium Voice Studio Design System
+|--------------------------------------------------------------------------
+*/
+
+:root {
+    font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+    color: #f8fafc;
+    background: #020617;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --vs-bg: #020617;
+    --vs-bg-soft: #07111f;
+    --vs-surface: rgba(15, 23, 42, 0.72);
+    --vs-surface-solid: #0f172a;
+    --vs-surface-light: rgba(30, 41, 59, 0.56);
+
+    --vs-border: rgba(148, 163, 184, 0.13);
+    --vs-border-strong: rgba(129, 140, 248, 0.26);
+
+    --vs-text: #f8fafc;
+    --vs-text-soft: #cbd5e1;
+    --vs-text-muted: #94a3b8;
+    --vs-text-dim: #64748b;
+
+    --vs-primary: #6366f1;
+    --vs-primary-deep: #4f46e5;
+    --vs-secondary: #8b5cf6;
+    --vs-cyan: #38bdf8;
+
+    --vs-success: #34d399;
+    --vs-warning: #fbbf24;
+    --vs-danger: #fb7185;
+
+    --vs-shadow:
+            0 24px 80px rgba(2, 6, 23, 0.46);
+
+    --vs-shadow-soft:
+            0 12px 40px rgba(2, 6, 23, 0.28);
+
+    --vs-glow:
+            0 0 40px rgba(99, 102, 241, 0.12);
+
+    --vs-radius-sm: 10px;
+    --vs-radius-md: 16px;
+    --vs-radius-lg: 22px;
+    --vs-radius-xl: 28px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global Reset
+|--------------------------------------------------------------------------
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+    background: var(--vs-bg);
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    color: var(--vs-text);
+
+    background:
+            radial-gradient(
+                    900px circle at 0% 0%,
+                    rgba(79, 70, 229, 0.15),
+                    transparent 44%
+            ),
+            radial-gradient(
+                    800px circle at 100% 0%,
+                    rgba(56, 189, 248, 0.08),
+                    transparent 42%
+            ),
+            radial-gradient(
+                    850px circle at 50% 100%,
+                    rgba(139, 92, 246, 0.08),
+                    transparent 48%
+            ),
+            linear-gradient(
+                    180deg,
+                    #020617 0%,
+                    #030712 45%,
+                    #020617 100%
+            );
+
+    background-attachment: fixed;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Selection
+|--------------------------------------------------------------------------
+*/
+
+::selection {
+    color: #ffffff;
+    background: rgba(99, 102, 241, 0.8);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Scrollbar
+|--------------------------------------------------------------------------
+*/
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color:
+            rgba(129, 140, 248, 0.42)
+            rgba(15, 23, 42, 0.55);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    border: 2px solid rgba(15, 23, 42, 0.65);
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(99, 102, 241, 0.75),
+                    rgba(139, 92, 246, 0.75)
+            );
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(129, 140, 248, 0.9),
+                    rgba(167, 139, 250, 0.9)
+            );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Typography
+|--------------------------------------------------------------------------
+*/
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Focus
+|--------------------------------------------------------------------------
+*/
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: none;
+    box-shadow:
+            0 0 0 3px rgba(99, 102, 241, 0.16),
+            0 0 0 1px rgba(129, 140, 248, 0.7);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Surface
+|--------------------------------------------------------------------------
+*/
+
+.vs-surface {
+    position: relative;
+
+    border: 1px solid var(--vs-border);
+    border-radius: var(--vs-radius-xl);
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(30, 41, 59, 0.66),
+                    rgba(15, 23, 42, 0.58)
+            );
+
+    box-shadow:
+            var(--vs-shadow-soft),
+            inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.vs-surface::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.035),
+                    transparent 30%,
+                    transparent 70%,
+                    rgba(99, 102, 241, 0.025)
+            );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Card
+|--------------------------------------------------------------------------
+*/
+
+.vs-card {
+    position: relative;
+
+    border: 1px solid var(--vs-border);
+    border-radius: var(--vs-radius-lg);
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(15, 23, 42, 0.9),
+                    rgba(15, 23, 42, 0.72)
+            );
+
+    box-shadow:
+            0 18px 50px rgba(2, 6, 23, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.022);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transition:
+            transform 220ms ease,
+            border-color 220ms ease,
+            box-shadow 220ms ease,
+            background 220ms ease;
+}
+
+.vs-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+            rgba(129, 140, 248, 0.2);
+
+    box-shadow:
+            0 24px 65px rgba(2, 6, 23, 0.42),
+            0 0 36px rgba(99, 102, 241, 0.06);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Glass Card
+|--------------------------------------------------------------------------
+*/
+
+.vs-glass {
+    border: 1px solid rgba(148, 163, 184, 0.12);
+
+    background:
+            rgba(15, 23, 42, 0.52);
+
+    box-shadow:
+            0 20px 60px rgba(2, 6, 23, 0.28);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Input
+|--------------------------------------------------------------------------
+*/
+
+.vs-input {
+    width: 100%;
+
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: var(--vs-radius-md);
+
+    background:
+            rgba(2, 6, 23, 0.68);
+
+    color: var(--vs-text);
+
+    padding:
+            0.85rem 1rem;
+
+    outline: none;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+    transition:
+            border-color 180ms ease,
+            box-shadow 180ms ease,
+            background 180ms ease,
+            transform 180ms ease;
+}
+
+.vs-input::placeholder {
+    color: rgba(148, 163, 184, 0.58);
+}
+
+.vs-input:hover {
+    border-color:
+            rgba(129, 140, 248, 0.2);
+}
+
+.vs-input:focus {
+    border-color:
+            rgba(129, 140, 248, 0.58);
+
+    background:
+            rgba(2, 6, 23, 0.82);
+
+    box-shadow:
+            0 0 0 4px rgba(99, 102, 241, 0.08),
+            0 10px 25px rgba(2, 6, 23, 0.18);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Textarea
+|--------------------------------------------------------------------------
+*/
+
+.vs-textarea {
+    width: 100%;
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: var(--vs-radius-lg);
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(2, 6, 23, 0.74),
+                    rgba(15, 23, 42, 0.62)
+            );
+
+    color: var(--vs-text);
+
+    padding: 1.1rem 1.15rem;
+
+    line-height: 1.7;
+
+    outline: none;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+    transition:
+            border-color 180ms ease,
+            box-shadow 180ms ease,
+            background 180ms ease;
+}
+
+.vs-textarea::placeholder {
+    color: rgba(148, 163, 184, 0.52);
+}
+
+.vs-textarea:hover {
+    border-color:
+            rgba(129, 140, 248, 0.18);
+}
+
+.vs-textarea:focus {
+    border-color:
+            rgba(129, 140, 248, 0.55);
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(2, 6, 23, 0.84),
+                    rgba(15, 23, 42, 0.7)
+            );
+
+    box-shadow:
+            0 0 0 4px rgba(99, 102, 241, 0.07),
+            0 20px 45px rgba(2, 6, 23, 0.16);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Select
+|--------------------------------------------------------------------------
+*/
+
+.vs-select {
+    width: 100%;
+
+    appearance: none;
+
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: var(--vs-radius-md);
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(15, 23, 42, 0.85),
+                    rgba(2, 6, 23, 0.78)
+            );
+
+    color: var(--vs-text);
+
+    padding:
+            0.82rem 2.5rem 0.82rem 1rem;
+
+    outline: none;
+
+    transition:
+            border-color 180ms ease,
+            box-shadow 180ms ease;
+}
+
+.vs-select:hover {
+    border-color:
+            rgba(129, 140, 248, 0.22);
+}
+
+.vs-select:focus {
+    border-color:
+            rgba(129, 140, 248, 0.55);
+
+    box-shadow:
+            0 0 0 4px rgba(99, 102, 241, 0.07);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Premium Primary Button
+|--------------------------------------------------------------------------
+*/
+
+.vs-primary-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    border-radius: 14px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #6366f1 0%,
+                    #7c3aed 55%,
+                    #8b5cf6 100%
+            );
+
+    color: #ffffff;
+
+    padding:
+            0.85rem 1.15rem;
+
+    font-weight: 700;
+
+    box-shadow:
+            0 14px 34px rgba(79, 70, 229, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+    transition:
+            transform 180ms ease,
+            box-shadow 180ms ease,
+            filter 180ms ease;
+}
+
+.vs-primary-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    transform:
+            translateX(-110%);
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.14),
+                    transparent
+            );
+
+    transition:
+            transform 500ms ease;
+}
+
+.vs-primary-button:hover {
+    transform:
+            translateY(-1px);
+
+    filter:
+            brightness(1.05);
+
+    box-shadow:
+            0 18px 42px rgba(79, 70, 229, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.vs-primary-button:hover::before {
+    transform:
+            translateX(110%);
+}
+
+.vs-primary-button:active {
+    transform:
+            translateY(0);
+}
+
+.vs-primary-button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.55;
+
+    transform: none;
+
+    box-shadow:
+            none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Secondary Button
+|--------------------------------------------------------------------------
+*/
+
+.vs-secondary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 14px;
+
+    background:
+            rgba(15, 23, 42, 0.7);
+
+    color: #e2e8f0;
+
+    padding:
+            0.82rem 1.1rem;
+
+    font-weight: 650;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    transition:
+            transform 180ms ease,
+            border-color 180ms ease,
+            background 180ms ease,
+            color 180ms ease;
+}
+
+.vs-secondary-button:hover {
+    transform:
+            translateY(-1px);
+
+    border-color:
+            rgba(129, 140, 248, 0.24);
+
+    background:
+            rgba(30, 41, 59, 0.82);
+
+    color:
+            #ffffff;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ghost Button
+|--------------------------------------------------------------------------
+*/
+
+.vs-ghost-button {
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    background:
+            transparent;
+
+    color:
+            #94a3b8;
+
+    padding:
+            0.65rem 0.8rem;
+
+    transition:
+            color 180ms ease,
+            background 180ms ease,
+            border-color 180ms ease;
+}
+
+.vs-ghost-button:hover {
+    border-color:
+            rgba(148, 163, 184, 0.1);
+
+    background:
+            rgba(30, 41, 59, 0.45);
+
+    color:
+            #ffffff;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Badge
+|--------------------------------------------------------------------------
+*/
+
+.vs-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    border: 1px solid rgba(129, 140, 248, 0.14);
+    border-radius: 999px;
+
+    background:
+            rgba(99, 102, 241, 0.08);
+
+    color:
+            #c7d2fe;
+
+    padding:
+            0.35rem 0.65rem;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Gradient Text
+|--------------------------------------------------------------------------
+*/
+
+.vs-gradient-text {
+    background:
+            linear-gradient(
+                    90deg,
+                    #c7d2fe 0%,
+                    #a78bfa 48%,
+                    #67e8f9 100%
+            );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Section Heading
+|--------------------------------------------------------------------------
+*/
+
+.vs-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    color:
+            #a5b4fc;
+
+    font-size:
+            0.7rem;
+
+    font-weight:
+            800;
+
+    letter-spacing:
+            0.2em;
+
+    text-transform:
+            uppercase;
+}
+
+.vs-title {
+    margin-top:
+            0.55rem;
+
+    color:
+            #f8fafc;
+
+    font-size:
+            clamp(
+                    1.8rem,
+                    3vw,
+                    2.65rem
+            );
+
+    font-weight:
+            800;
+
+    letter-spacing:
+            -0.035em;
+
+    line-height:
+            1.08;
+}
+
+.vs-subtitle {
+    margin-top:
+            0.75rem;
+
+    max-width:
+            780px;
+
+    color:
+            #94a3b8;
+
+    font-size:
+            0.98rem;
+
+    line-height:
+            1.75;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Dividers
+|--------------------------------------------------------------------------
+*/
+
+.vs-divider {
+    height: 1px;
+
+    width: 100%;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(148, 163, 184, 0.14),
+                    transparent
+            );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ambient Glow
+|--------------------------------------------------------------------------
+*/
+
+.vs-glow {
+    position: relative;
+}
+
+.vs-glow::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -70px;
+    top: -70px;
+
+    border-radius: 999px;
+
+    background:
+            radial-gradient(
+                    circle,
+                    rgba(99, 102, 241, 0.11),
+                    transparent 70%
+            );
+
+    pointer-events: none;
+
+    filter: blur(8px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Loading Shimmer
+|--------------------------------------------------------------------------
+*/
+
+.vs-shimmer {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+            linear-gradient(
+                    110deg,
+                    rgba(15, 23, 42, 0.8) 8%,
+                    rgba(30, 41, 59, 0.92) 18%,
+                    rgba(15, 23, 42, 0.8) 33%
+            );
+
+    background-size:
+            220% 100%;
+
+    animation:
+            vs-shimmer 1.8s linear infinite;
+}
+
+@keyframes vs-shimmer {
+    0% {
+        background-position:
+                220% 0;
+    }
+
+    100% {
+        background-position:
+                -220% 0;
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Floating Animation
+|--------------------------------------------------------------------------
+*/
+
+.vs-float {
+    animation:
+            vs-float 5s ease-in-out infinite;
+}
+
+@keyframes vs-float {
+    0%,
+    100% {
+        transform:
+                translateY(0);
+    }
+
+    50% {
+        transform:
+                translateY(-5px);
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Fade Up
+|--------------------------------------------------------------------------
+*/
+
+.vs-fade-up {
+    animation:
+            vs-fade-up 450ms ease both;
+}
+
+@keyframes vs-fade-up {
+    from {
+        opacity: 0;
+
+        transform:
+                translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+                translateY(0);
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Pulse Dot
+|--------------------------------------------------------------------------
+*/
+
+.vs-status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 999px;
+
+    background:
+            #34d399;
+
+    box-shadow:
+            0 0 0 5px rgba(52, 211, 153, 0.08),
+            0 0 16px rgba(52, 211, 153, 0.45);
+
+    animation:
+            vs-status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes vs-status-pulse {
+    0%,
+    100% {
+        opacity: 0.65;
+
+        transform:
+                scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+                scale(1.05);
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Audio Player
+|--------------------------------------------------------------------------
+*/
+
+audio {
+    width: 100%;
+
+    border-radius:
+            14px;
+
+    background:
+            rgba(15, 23, 42, 0.84);
+}
+
+audio::-webkit-media-controls-panel {
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(30, 41, 59, 0.95),
+                    rgba(15, 23, 42, 0.98)
+            );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Form Controls
+|--------------------------------------------------------------------------
+*/
+
+input,
+textarea,
+select {
+    color-scheme: dark;
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity:
+            1;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Disabled Controls
+|--------------------------------------------------------------------------
+*/
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+    cursor:
+            not-allowed;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Tables
+|--------------------------------------------------------------------------
+*/
+
+table {
+    border-collapse:
+            collapse;
+}
+
+thead th {
+    white-space:
+            nowrap;
+}
+
+tbody tr {
+    transition:
+            background 160ms ease;
+}
+
+tbody tr:hover {
+    background:
+            rgba(30, 41, 59, 0.3);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Images
+|--------------------------------------------------------------------------
+*/
+
+img {
+    max-width:
+            100%;
+
+    display:
+            block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 1024px) {
+
+    .vs-title {
+        font-size:
+                2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background-attachment:
+                scroll;
+    }
+
+    .vs-title {
+        font-size:
+                1.8rem;
+    }
+
+    .vs-subtitle {
+        font-size:
+                0.92rem;
+    }
+
+    .vs-card,
+    .vs-surface {
+        border-radius:
+                20px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .vs-primary-button,
+    .vs-secondary-button {
+        width:
+                100%;
+    }
+
+}
